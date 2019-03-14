@@ -1,6 +1,6 @@
 # vue-pwa-carousel
 
-> A simple tax calculator
+> Simple Carousel (slider) using Vue
 
 ## Build Setup
 

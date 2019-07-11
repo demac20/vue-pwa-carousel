@@ -28,50 +28,50 @@
 </template>
 
 <script>
-  import Card from './Card'
-  import ArrowButton from './ArrowButton'
-  import Indicators from './Indicators'
+import Card from "./Card";
+import ArrowButton from "./ArrowButton";
+import Indicators from "./Indicators";
 
-  export default {
-    name: 'Carousel',
-    props: { cards: Array },
-    components: { Card, ArrowButton, Indicators },
-    data() {
-      return {
-        currentElementIndex: 0
-      }
+export default {
+  name: "Carousel",
+  props: { cards: Array },
+  components: { Card, ArrowButton, Indicators },
+  data() {
+    return {
+      currentElementIndex: 0
+    };
+  },
+  computed: {
+    currentElement() {
+      return this.cards[this.currentElementIndex];
     },
-    computed: {
-      currentElement() {
-        return this.cards[this.currentElementIndex]
-      },
-      reachedMaxLeft() {
-        return this.currentElementIndex === 0
-      },
-      reachedMaxRight() {
-        return this.currentElementIndex === this.cards.length - 1
-      }
+    reachedMaxLeft() {
+      return this.currentElementIndex === 0;
     },
-    methods: {
-      showNextElement() {
-        this.currentElementIndex++
-      },
-      showPrevElement() {
-        this.currentElementIndex--
-      },
-      showElement(elementIndex) {
-        this.currentElementIndex = elementIndex
-      },
-      swipeHandler(direction) {
-        if (direction === 'right' && !this.reachedMaxLeft) {
-          this.showPrevElement()
-        }
-        if (direction === 'left' && !this.reachedMaxRight) {
-          this.showNextElement()
-        }
+    reachedMaxRight() {
+      return this.currentElementIndex === this.cards.length - 1;
+    }
+  },
+  methods: {
+    showNextElement() {
+      this.currentElementIndex++;
+    },
+    showPrevElement() {
+      this.currentElementIndex--;
+    },
+    showElement(elementIndex) {
+      this.currentElementIndex = elementIndex;
+    },
+    swipeHandler(direction) {
+      if (direction === "right" && !this.reachedMaxLeft) {
+        this.showPrevElement();
+      }
+      if (direction === "left" && !this.reachedMaxRight) {
+        this.showNextElement();
       }
     }
   }
+};
 </script>
 
 <style src="../assets/styles/Carousel.css" scoped />
